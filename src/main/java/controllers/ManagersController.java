@@ -2,6 +2,7 @@ package controllers;
 import db.DBHelper;
 import models.Department;
 import models.Employee;
+import models.Engineer;
 import models.Manager;
 import spark.ModelAndView;
 import spark.template.velocity.VelocityTemplateEngine;
@@ -51,5 +52,12 @@ public class ManagersController {
             return null;
         }, new VelocityTemplateEngine());
 
+        post("/managers/delete", (req, res) -> {
+            int managerId = Integer.parseInt(req.queryParams("id"));
+            Manager manager = DBHelper.find(managerId, Manager.class);
+            DBHelper.delete(manager);
+            res.redirect("/managers");
+            return null;
+        }, new VelocityTemplateEngine());
     }
 }
