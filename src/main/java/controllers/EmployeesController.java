@@ -19,6 +19,8 @@ public class EmployeesController {
         staticFileLocation("public");
 
         ManagersController managersController = new ManagersController();   // Will create a new instance of Manager Controller
+        EngineersController engineersController = new EngineersController();
+
         Seeds.seedData();
 
         get("/employees", (req, res) -> {
