@@ -37,7 +37,6 @@ public class DepartmentsController {
             return new ModelAndView(model, "templates/layout.vtl");
         }, new VelocityTemplateEngine());
 
-
         post("/departments", (req, res) -> {
             String title = req.queryParams("title");
             Department department = new Department(title);
@@ -46,6 +45,13 @@ public class DepartmentsController {
             return null;
         }, new VelocityTemplateEngine());
 
+        post("/departments/delete", (req, res) -> {
+            int departmentId = Integer.parseInt(req.queryParams("id"));
+            Department department = DBHelper.find(departmentId, Department.class);
+            DBHelper.delete(department);
+            res.redirect("/departments");
+            return null;
+        }, new VelocityTemplateEngine());
     }
 }
 
