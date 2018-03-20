@@ -18,6 +18,12 @@
             <td>$engineer.getLastName()</td>
             <td>$engineer.getSalary()</td>
             <td>$engineer.getDepartment().getTitle()</td>
+            <td>
+                <form action="/engineers/delete" method="post">
+                    <input id="id" type="hidden" name="id" value=$engineer.getId() />
+                    <input type="submit" value="Delete" class="button" />
+                </form>
+            </td>
         </tr>
         #end
     </table>
