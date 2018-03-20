@@ -12,6 +12,7 @@ import java.util.List;
 import java.util.Map;
 
 import static spark.Spark.get;
+import static spark.Spark.post;
 
 public class EngineersController {
 
@@ -39,6 +40,17 @@ public class EngineersController {
             return new ModelAndView(model, "templates/layout.vtl");
         }, new VelocityTemplateEngine());
 
+        post("/engineers", (req, res) -> {
+            int departmentId = Integer.parseInt(req.queryParams("department"));
+            Department department = DBHelper.find(departmentId, Department.class);
+            String firstName = req.queryParams("firstName");
+            String lastName = req.queryParams("lastName");
+            int salary = Integer.parseInt(req.queryParams("salary"));
+            Engineer engineer = new Engineer(firstName, lastName, salary, department);
+            DBHelper.save(engineer);
+            res.redirect("/engineers");
+            return null;
+        }, new VelocityTemplateEngine());
     }
 }
 

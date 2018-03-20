@@ -1,11 +1,11 @@
 <p class="pageHeader">New Engineer</p>
 
-<form action="/Engineers" method="post">
+<form action="/engineers" method="post">
     <label for="firstName">First Name:</label>
-    <input id="firstName" class="inputbox" type="text" name="firstName" required="true" />
+    <input id="firstName" class="inputbox" type="text" name="firstName" required />
 
     <label for="lastName">Last Name:</label>
-    <input id="lastName" class="inputbox" type="text" name="lastName" required="true" />
+    <input id="lastName" class="inputbox" type="text" name="lastName" required />
 
     <label for="department">Department:</label>
     <select id="department" name="department">
@@ -15,10 +15,7 @@
     </select>
 
     <label for="salary">Salary:</label>
-    <input id="salary" class="inputbox" type="text" name="salary" required="true" />
-
-    <label for="budget">Budget:</label>
-    <input id="budget" class="inputbox" type="text" name="budget" required="true" />
+    <input id="salary" class="inputbox" type="text" name="salary" required />
 
     <input type="submit" value="Save" class="button" />
 </form>

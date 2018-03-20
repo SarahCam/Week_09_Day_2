@@ -20,6 +20,7 @@ public class EmployeesController {
 
         ManagersController managersController = new ManagersController();   // Will create a new instance of Manager Controller
         EngineersController engineersController = new EngineersController();
+        DepartmentsController departmentsController = new DepartmentsController();
 
         Seeds.seedData();
 
