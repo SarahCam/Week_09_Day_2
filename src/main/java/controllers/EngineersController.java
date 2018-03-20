@@ -26,7 +26,7 @@ public class EngineersController {
 
         get("/engineers", (req, res) -> {
             Map<String, Object> model = new HashMap();
-            List<Manager> engineers = DBHelper.getAll(Engineer.class);
+            List<Engineer> engineers = DBHelper.getAll(Engineer.class);
             model.put("template", "templates/engineers/index.vtl");
             model.put("engineers", engineers);
             return new ModelAndView(model, "templates/layout.vtl");
